@@ -1,0 +1,109 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+header {
+    position: fixed; /* Fixes the header at the top */
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff; /* White background for the header */
+    z-index: 999; /* Keeps the header above other content */
+}
+
+nav {
+    display: flex; /* Flexbox for layout */
+    justify-content: space-between; /* Space between logo and menu */
+    align-items: center; /* Center vertically */
+    padding: 15px; /* Padding around the nav */
+}
+
+nav ul {
+    list-style: none; /* Removes default bullet points */
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+}
+
+nav ul li {
+    display: inline-block; /* Horizontal layout for menu items */
+    margin-right: 20px; /* Space between menu items */
+}
+
+nav ul li a {
+    text-decoration: none; /* Removes underline from links */
+    color: #333; /* Dark gray color for text */
+    font-weight: bold; /* Bold text */
+}
+
+.menu-toggle {
+    display: none; /* Hide toggle button on larger screens */
+    cursor: pointer; /* Pointer cursor for clickable element */
+    padding: 10px; /* Padding around the button */
+}
+
+.menu-toggle span {
+    display: block; /* Stacks the spans vertically */
+    height: 2px; /* Height of the menu lines */
+    width: 25px; /* Width of the menu lines */
+    background-color: #333; /* Dark gray color for lines */
+    margin-bottom: 5px; /* Space between lines */
+    transition: transform 0.3s ease-in-out; /* Smooth transition for animation */
+}
+
+/* Active states for menu toggle */
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px); /* Rotates and positions the first line */
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0; /* Hides the middle line */
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px); /* Rotates and positions the last line */
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+    .menu-toggle {
+        display: block; /* Show toggle button on small screens */
+    }
+
+    nav ul {
+        display: none; /* Hide nav links initially */
+    }
+
+    .menu-toggle.active + nav ul {
+        display: block; /* Show nav links when toggle is active */
+        text-align: center; /* Center the text */
+    }
+
+    nav ul li {
+        display: block; /* Stack menu items vertically */
+        margin: 10px 0; /* Margin between stacked items */
+    }
+}
+
+/* Dropdown Menu Styles */
+.dropdown-menu {
+    display: none; /* Hidden by default */
+    position: absolute; /* Positioned relative to the dropdown */
+    top: 100%; /* Below the dropdown link */
+    left: 0;
+    background-color: white; /* Background for dropdown */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    z-index: 1000; /* Above other elements */
+    min-width: 150px; /* Minimum width for dropdown */
+    padding: 10px 0; /* Padding inside dropdown */
+}
+
+.dropdown-menu li {
+    display: block; /* Stack dropdown items vertically */
+    padding: 10px 20px; /* Padding around dropdown items */
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block; /* Show dropdown on hover */
+}
